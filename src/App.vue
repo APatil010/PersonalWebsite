@@ -1,30 +1,41 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import NavigationBar from "./components/NavigationBar.vue";
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+    <NavigationBar />
+    <router-view />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500&display=swap');
+
+body {
+    margin: 0 20%;
+    font-family: 'Roboto Mono', monospace;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+a, a:hover, a:visited, a:active, a:link {
+    text-decoration: none;
+    color: black;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.mono-light {
+    font-weight: 300;
+}
+.font-40 {
+    font-size: 40px;
+}
+.font-28 {
+    font-size: 28px;
+}
+.font-20 {
+    font-size: 20px;
+}
+.font-18 {
+    font-size: 18px;
+}
+.font-16 {
+    font-size: 16px;
 }
 </style>
