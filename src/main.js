@@ -6,6 +6,7 @@ import Faqs from "./components/Faqs.vue";
 import About from "./components/About.vue";
 import Projects from "./components/Projects.vue";
 import Contact from "./components/Contact.vue";
+import Secret from "./components/Secret.vue";
 
 const routes = [
     { path: '/', component: Home },
@@ -13,6 +14,7 @@ const routes = [
     { path: '/projects', component: Projects },
     { path: '/contact', component: Contact },
     { path: '/faqs', component: Faqs },
+    { path: '/secret', component: Secret },
 ]
 
 const router = createRouter({
