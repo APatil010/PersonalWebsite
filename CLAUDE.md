@@ -1,0 +1,28 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Overview
+
+Personal portfolio site built with Vue 3 (`<script setup>` SFCs), Vue Router 4, and Vite 4. Plain JavaScript — no TypeScript, linter, or test suite is configured.
+
+## Commands
+
+- `npm install` — install dependencies
+- `npm run dev` — start the Vite dev server
+- `npm run build` — production build to `dist/`
+- `npm run preview` — serve the built `dist/` locally
+
+## Architecture
+
+- **Routing** is defined in `src/main.js` (not a separate router file). Each top-level page in `src/components/` (Home, About, Projects, Contact, Faqs) maps to a route; `App.vue` renders `NavigationBar` plus `<router-view />`. To add a page, create the component, register the route in `main.js`, and add a link in `NavigationBar.vue`.
+- **Hash history is intentional** (`createWebHashHistory`). The site is served as static files from GitHub Pages, which has no SPA fallback, so switching to HTML5 history mode breaks deep links/refreshes. A prior commit reverted exactly this.
+- **Content lives in `src/assets/data.js`**, a single exported object with `skills`, `faqs`, and `projects` arrays. Components (`Projects.vue`, `Faqs.vue`, `subcomponents/Skills.vue`) import it directly. Project images are imported at the top of `data.js` and referenced via each project's `src` field — adding a project means adding the image to `src/assets/`, importing it in `data.js`, and appending an entry.
+- **Global styles** (Roboto Mono font, body margins, shared utility classes like `.mono-light`, `.font-40`…`.font-16`) are in the unscoped `<style>` block of `App.vue`; reuse these classes rather than redefining sizes in components.
+- **Icons** use Font Awesome via `@fortawesome/vue-fontawesome`, importing individual icons per component (see `Contact.vue`).
+
+## Deployment
+
+Pushing to `main` triggers `.github/workflows/main.yml`, which runs `npm install && npm run build` on Node 18 and deploys `dist/` to GitHub Pages. There is no separate staging step — anything merged to `main` goes live.
+
+The site is served from a custom domain at the root path, so `vite.config.js` intentionally leaves `base` at its default `/` — don't set it to `/PersonalWebsite/`. The custom domain is configured in the repo's GitHub Pages settings rather than via a `CNAME` file.
