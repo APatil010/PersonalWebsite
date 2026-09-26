@@ -12,9 +12,8 @@ const questions = data.faqs;
 </script>
 
 <style scoped>
-  .faqsGrid {
-      display: grid;
-      grid-template-columns: 1fr 2fr 1fr;
-
-  }
+.faqsGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
 </style>
