@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Personal portfolio site built with Vue 3 (`<script setup>` SFCs), Vue Router 4, and Vite 4. Plain JavaScript — no TypeScript, linter, or test suite is configured.
+Personal portfolio site built with Vue 3 (`<script setup>` SFCs), Vue Router 5, and Vite 8. Plain JavaScript — no TypeScript, linter, or test suite is configured.
 
 ## Commands
 
@@ -23,6 +23,6 @@ Personal portfolio site built with Vue 3 (`<script setup>` SFCs), Vue Router 4, 
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/main.yml`, which runs `npm install && npm run build` on Node 18 and deploys `dist/` to GitHub Pages. There is no separate staging step — anything merged to `main` goes live.
+Pushing to `main` triggers `.github/workflows/main.yml`, which runs `npm install && npm run build` on Node 24 and deploys `dist/` to GitHub Pages. There is no separate staging step — anything merged to `main` goes live.
 
 The site is served from a custom domain at the root path, so `vite.config.js` intentionally leaves `base` at its default `/` — don't set it to `/PersonalWebsite/`. The custom domain is configured in the repo's GitHub Pages settings rather than via a `CNAME` file.
